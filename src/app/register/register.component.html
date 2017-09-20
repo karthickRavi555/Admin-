@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1.col-md-offset-2">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div>
+                    <h1>Register</h1>
+                    <label>firstname</label>
+                    <input type="text" ngModel class="form-control" ngModel name="firstname" required>
+                </div>
+                <br>
+                <div>
+                    <label>lastname</label>
+                    <input type="text" ngModel class="form-control" ngModel name="lastname" required>
+                </div>
+                <br>
+                <div>
+                    <label>username</label>
+                    <input type="text" ngModel class="form-control" ngModel name="username" required>
+                </div>
+                <br>
+                <div>
+                    <label>Email</label>
+                    <input type="email" ngModel class="form-control" ngModel name="email" required email #email="ngModel">
+                    <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+                </div>
+                <br>
+                <div>
+                    <label for="password">password</label>
+                    <input type="text" ngModel class="form-control" ngModel name="password" required password>
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit" [disabled]="!f.valid">register</button>
+                <a [routerLink]="['signup']" class="btn btn-link">Cancel</a>
+
+            </form>
+        </div>
+    </div>
+</div>
